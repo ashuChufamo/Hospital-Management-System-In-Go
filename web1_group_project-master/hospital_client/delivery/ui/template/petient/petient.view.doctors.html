@@ -1,0 +1,43 @@
+{{define "patient.view.doctor"}}
+    {{template "patient.navbar".}}
+    {{template "patient.view.doctor.content".}}
+    {{template "patient.footer".}}
+{{end}}
+
+{{define "patient.view.doctor.content"}}
+    <div class="container-fluid">
+        <h1 class="mt-4">Doctors</h1>
+        <div class="container">
+            <table class="datatable table table-bordered table-striped"  style="width:100%;" cellspacing="0">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Doctor Name</th>
+                    <th>Department</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <th>ID</th>
+                    <th>Doctor Name</th>
+                    <th>Department</th>
+                </tr>
+                </tfoot>
+                <tbody>
+                {{range .Doctors}}
+                    <tr>
+                        <td>{{.ID}}</td>
+                    {{with .Profile}}
+                        <td>{{.FullName}}</td>
+                            {{end}}
+                        <td>{{.Department}}</td>
+                    </tr>
+                {{end}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+    </div>
+{{end}}
